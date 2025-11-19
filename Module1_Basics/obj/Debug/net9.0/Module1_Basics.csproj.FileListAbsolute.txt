@@ -1,0 +1,14 @@
+C:\Users\maria\Documents\Repositorios\Learning .NET\Module1_Basics\bin\Debug\net9.0\Module1_Basics.exe
+C:\Users\maria\Documents\Repositorios\Learning .NET\Module1_Basics\bin\Debug\net9.0\Module1_Basics.deps.json
+C:\Users\maria\Documents\Repositorios\Learning .NET\Module1_Basics\bin\Debug\net9.0\Module1_Basics.runtimeconfig.json
+C:\Users\maria\Documents\Repositorios\Learning .NET\Module1_Basics\bin\Debug\net9.0\Module1_Basics.dll
+C:\Users\maria\Documents\Repositorios\Learning .NET\Module1_Basics\bin\Debug\net9.0\Module1_Basics.pdb
+C:\Users\maria\Documents\Repositorios\Learning .NET\Module1_Basics\obj\Debug\net9.0\Module1_Basics.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\maria\Documents\Repositorios\Learning .NET\Module1_Basics\obj\Debug\net9.0\Module1_Basics.AssemblyInfoInputs.cache
+C:\Users\maria\Documents\Repositorios\Learning .NET\Module1_Basics\obj\Debug\net9.0\Module1_Basics.AssemblyInfo.cs
+C:\Users\maria\Documents\Repositorios\Learning .NET\Module1_Basics\obj\Debug\net9.0\Module1_Basics.csproj.CoreCompileInputs.cache
+C:\Users\maria\Documents\Repositorios\Learning .NET\Module1_Basics\obj\Debug\net9.0\Module1_Basics.dll
+C:\Users\maria\Documents\Repositorios\Learning .NET\Module1_Basics\obj\Debug\net9.0\refint\Module1_Basics.dll
+C:\Users\maria\Documents\Repositorios\Learning .NET\Module1_Basics\obj\Debug\net9.0\Module1_Basics.pdb
+C:\Users\maria\Documents\Repositorios\Learning .NET\Module1_Basics\obj\Debug\net9.0\Module1_Basics.genruntimeconfig.cache
+C:\Users\maria\Documents\Repositorios\Learning .NET\Module1_Basics\obj\Debug\net9.0\ref\Module1_Basics.dll
