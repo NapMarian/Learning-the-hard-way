@@ -5,6 +5,7 @@ import { signOut } from "next-auth/react"
 import Link from "next/link"
 import { Button } from "@/components/ui/Button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/Card"
+import { ThemeToggle } from "@/components/ThemeToggle"
 import { getLevelDisplayName, getXpForNextLevel } from "@/lib/utils"
 
 type Module = {
@@ -55,15 +56,15 @@ export function DashboardContent({ user, modules, progress, recommendations }: D
   const isReadyForWork = user.level === "MID_LEVEL" || user.level === "SENIOR" || user.level === "EXPERT"
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Header */}
-      <header className="bg-white shadow">
+      <header className="bg-white dark:bg-gray-800 shadow dark:shadow-gray-700">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">C# Learning Platform</h1>
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">C# Learning Platform</h1>
           </div>
           <div className="flex items-center gap-4">
-            <span className="text-sm text-gray-600">{user.name}</span>
+            <span className="text-sm text-gray-600 dark:text-gray-300">{user.name}</span>
             <Button variant="outline" onClick={() => signOut({ callbackUrl: "/" })}>
               Cerrar Sesión
             </Button>
@@ -85,15 +86,15 @@ export function DashboardContent({ user, modules, progress, recommendations }: D
               </CardHeader>
               <CardContent>
                 <div className="grid md:grid-cols-2 gap-4">
-                  <div className="bg-blue-50 p-4 rounded-lg">
-                    <div className="text-sm text-blue-600 font-medium mb-1">Nivel Actual</div>
-                    <div className="text-2xl font-bold text-blue-900">
+                  <div className="bg-blue-50 dark:bg-blue-950 p-4 rounded-lg">
+                    <div className="text-sm text-blue-600 dark:text-blue-400 font-medium mb-1">Nivel Actual</div>
+                    <div className="text-2xl font-bold text-blue-900 dark:text-blue-100">
                       {getLevelDisplayName(user.level)}
                     </div>
                   </div>
-                  <div className="bg-green-50 p-4 rounded-lg">
-                    <div className="text-sm text-green-600 font-medium mb-1">Progreso General</div>
-                    <div className="text-2xl font-bold text-green-900">
+                  <div className="bg-green-50 dark:bg-green-950 p-4 rounded-lg">
+                    <div className="text-sm text-green-600 dark:text-green-400 font-medium mb-1">Progreso General</div>
+                    <div className="text-2xl font-bold text-green-900 dark:text-green-100">
                       {completedLessons}/{totalLessons} lecciones
                     </div>
                   </div>
@@ -102,12 +103,12 @@ export function DashboardContent({ user, modules, progress, recommendations }: D
                 {/* XP Progress Bar */}
                 <div className="mt-6">
                   <div className="flex justify-between text-sm mb-2">
-                    <span className="font-medium">XP: {user.xp}</span>
-                    <span className="text-gray-600">Próximo nivel: {nextLevelXp} XP</span>
+                    <span className="font-medium dark:text-gray-200">XP: {user.xp}</span>
+                    <span className="text-gray-600 dark:text-gray-400">Próximo nivel: {nextLevelXp} XP</span>
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-3">
+                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
                     <div
-                      className="bg-blue-600 h-3 rounded-full transition-all"
+                      className="bg-blue-600 dark:bg-blue-500 h-3 rounded-full transition-all"
                       style={{ width: `${xpProgress}%` }}
                     />
                   </div>
@@ -115,12 +116,12 @@ export function DashboardContent({ user, modules, progress, recommendations }: D
 
                 {/* Ready for work indicator */}
                 {isReadyForWork && (
-                  <div className="mt-4 p-4 bg-green-100 border border-green-300 rounded-lg">
-                    <div className="flex items-center gap-2 text-green-800">
+                  <div className="mt-4 p-4 bg-green-100 dark:bg-green-900 border border-green-300 dark:border-green-700 rounded-lg">
+                    <div className="flex items-center gap-2 text-green-800 dark:text-green-200">
                       <span className="text-xl">🎉</span>
                       <span className="font-semibold">¡Estás listo para el mundo laboral!</span>
                     </div>
-                    <p className="text-sm text-green-700 mt-1">
+                    <p className="text-sm text-green-700 dark:text-green-300 mt-1">
                       Tu nivel de conocimiento es suficiente para postular a posiciones junior/mid-level.
                     </p>
                   </div>
@@ -130,11 +131,11 @@ export function DashboardContent({ user, modules, progress, recommendations }: D
 
             {/* Modules */}
             <div className="space-y-4">
-              <h2 className="text-2xl font-bold">Módulos de Aprendizaje</h2>
+              <h2 className="text-2xl font-bold dark:text-gray-100">Módulos de Aprendizaje</h2>
               {modules.length === 0 ? (
                 <Card>
                   <CardContent className="p-8 text-center">
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 dark:text-gray-400">
                       No hay módulos disponibles aún. Estamos preparando el contenido.
                     </p>
                   </CardContent>
@@ -159,7 +160,7 @@ export function DashboardContent({ user, modules, progress, recommendations }: D
                               {module.description}
                             </CardDescription>
                           </div>
-                          <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
+                          <span className="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">
                             {getLevelDisplayName(module.level)}
                           </span>
                         </div>
@@ -167,14 +168,14 @@ export function DashboardContent({ user, modules, progress, recommendations }: D
                       <CardContent>
                         <div className="space-y-3">
                           <div className="flex items-center justify-between text-sm">
-                            <span className="text-gray-600">
+                            <span className="text-gray-600 dark:text-gray-400">
                               {completedInModule}/{moduleLessons} lecciones completadas
                             </span>
-                            <span className="font-medium">{moduleProgress}%</span>
+                            <span className="font-medium dark:text-gray-200">{moduleProgress}%</span>
                           </div>
-                          <div className="w-full bg-gray-200 rounded-full h-2">
+                          <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                             <div
-                              className="bg-blue-600 h-2 rounded-full transition-all"
+                              className="bg-blue-600 dark:bg-blue-500 h-2 rounded-full transition-all"
                               style={{ width: `${moduleProgress}%` }}
                             />
                           </div>
@@ -193,7 +194,7 @@ export function DashboardContent({ user, modules, progress, recommendations }: D
                               )
                             })}
                             {module.lessons.length > 3 && (
-                              <span className="text-sm text-gray-500 self-center">
+                              <span className="text-sm text-gray-500 dark:text-gray-400 self-center">
                                 +{module.lessons.length - 3} más
                               </span>
                             )}
@@ -216,16 +217,16 @@ export function DashboardContent({ user, modules, progress, recommendations }: D
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex justify-between">
-                  <span className="text-gray-600">XP Total</span>
-                  <span className="font-bold text-blue-600">{user.xp}</span>
+                  <span className="text-gray-600 dark:text-gray-400">XP Total</span>
+                  <span className="font-bold text-blue-600 dark:text-blue-400">{user.xp}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Lecciones Completadas</span>
-                  <span className="font-bold">{completedLessons}</span>
+                  <span className="text-gray-600 dark:text-gray-400">Lecciones Completadas</span>
+                  <span className="font-bold dark:text-gray-200">{completedLessons}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Progreso General</span>
-                  <span className="font-bold text-green-600">{completionPercentage}%</span>
+                  <span className="text-gray-600 dark:text-gray-400">Progreso General</span>
+                  <span className="font-bold text-green-600 dark:text-green-400">{completionPercentage}%</span>
                 </div>
               </CardContent>
             </Card>
@@ -240,21 +241,21 @@ export function DashboardContent({ user, modules, progress, recommendations }: D
               </CardHeader>
               <CardContent>
                 {recommendations.length === 0 ? (
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
                     No hay recomendaciones disponibles para tu nivel actual.
                   </p>
                 ) : (
                   <div className="space-y-3">
                     {recommendations.map((rec) => (
-                      <div key={rec.id} className="border-l-4 border-blue-600 pl-3 py-2">
-                        <div className="font-semibold text-sm">{rec.technology}</div>
-                        <div className="text-xs text-gray-600">{rec.description}</div>
+                      <div key={rec.id} className="border-l-4 border-blue-600 dark:border-blue-400 pl-3 py-2">
+                        <div className="font-semibold text-sm dark:text-gray-200">{rec.technology}</div>
+                        <div className="text-xs text-gray-600 dark:text-gray-400">{rec.description}</div>
                         {rec.resourceUrl && (
                           <a
                             href={rec.resourceUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-xs text-blue-600 hover:underline mt-1 inline-block"
+                            className="text-xs text-blue-600 dark:text-blue-400 hover:underline mt-1 inline-block"
                           >
                             Ver recurso →
                           </a>
@@ -268,6 +269,7 @@ export function DashboardContent({ user, modules, progress, recommendations }: D
           </div>
         </div>
       </div>
+      <ThemeToggle />
     </div>
   )
 }
