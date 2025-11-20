@@ -1,18 +1,19 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/Button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/Card"
+import { ThemeToggle } from "@/components/ThemeToggle"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-blue-950 dark:to-purple-950">
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-16">
         <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-6">
             Aprende C# de forma
-            <span className="text-blue-600"> Interactiva</span>
+            <span className="text-blue-600 dark:text-blue-400"> Interactiva</span>
           </h1>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
             Domina la programación en C# con ejercicios prácticos, seguimiento de progreso
             y un editor de código integrado. Desde principiante hasta experto.
           </p>
@@ -33,7 +34,7 @@ export default function HomePage() {
 
       {/* Features Section */}
       <section className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-center mb-12">¿Por qué esta plataforma?</h2>
+        <h2 className="text-3xl font-bold text-center mb-12 dark:text-gray-100">¿Por qué esta plataforma?</h2>
         <div className="grid md:grid-cols-3 gap-8">
           <Card>
             <CardHeader>
@@ -129,7 +130,7 @@ export default function HomePage() {
 
       {/* Levels Section */}
       <section className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-center mb-12">Tu Camino de Aprendizaje</h2>
+        <h2 className="text-3xl font-bold text-center mb-12 dark:text-gray-100">Tu Camino de Aprendizaje</h2>
         <div className="max-w-3xl mx-auto space-y-4">
           {[
             { level: "Principiante", xp: "0 - 500 XP", desc: "Fundamentos de C# y sintaxis básica" },
@@ -138,11 +139,11 @@ export default function HomePage() {
             { level: "Senior", xp: "3000 - 5000 XP", desc: "Arquitectura, testing, optimización" },
             { level: "Expert", xp: "5000+ XP", desc: "Temas avanzados y mejores prácticas" },
           ].map((item) => (
-            <div key={item.level} className="flex items-center gap-4 p-4 bg-white rounded-lg shadow">
-              <div className="w-32 font-bold text-blue-600">{item.level}</div>
+            <div key={item.level} className="flex items-center gap-4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+              <div className="w-32 font-bold text-blue-600 dark:text-blue-400">{item.level}</div>
               <div className="flex-1">
-                <div className="font-semibold">{item.desc}</div>
-                <div className="text-sm text-gray-500">{item.xp}</div>
+                <div className="font-semibold dark:text-gray-100">{item.desc}</div>
+                <div className="text-sm text-gray-500 dark:text-gray-400">{item.xp}</div>
               </div>
             </div>
           ))}
@@ -165,11 +166,13 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t bg-white">
-        <div className="container mx-auto px-4 py-8 text-center text-gray-600">
+      <footer className="border-t bg-white dark:bg-gray-900 dark:border-gray-800">
+        <div className="container mx-auto px-4 py-8 text-center text-gray-600 dark:text-gray-400">
           <p>&copy; 2025 C# Learning Platform. Desarrollado para aprender C# de forma efectiva.</p>
         </div>
       </footer>
+
+      <ThemeToggle />
     </div>
   )
 }
