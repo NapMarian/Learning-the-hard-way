@@ -5,7 +5,12 @@
       "Bash(npm install:*)",
       "Bash(npm audit fix:*)",
       "Bash(git remote add:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nAdd C# Learning Platform - Interactive web application\n\nThis commit adds a complete interactive learning platform for C# with:\n- Full authentication system (register/login with NextAuth.js)\n- Interactive code editor (Monaco Editor with C# syntax highlighting)\n- Progress tracking with XP and levels (Beginner to Expert)\n- Lesson system with exercises and automatic validation\n- Dashboard with personalized recommendations\n- Modular content structure ready for expansion\n- Initial seed data with 2 complete lessons\n- PostgreSQL database with Prisma ORM\n- Ready for Vercel deployment\n\nTech stack: Next.js 14, TypeScript, TailwindCSS, Prisma, NextAuth.js\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push:*)",
+      "Bash(openssl rand:*)",
+      "Bash(git commit:*)",
+      "Bash(git checkout:*)"
     ],
     "deny": [],
     "ask": []
