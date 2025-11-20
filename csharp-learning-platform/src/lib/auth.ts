@@ -64,9 +64,9 @@ export const authOptions: NextAuthOptions = {
     },
     async session({ session, token }) {
       if (session.user) {
-        (session.user as any).id = token.id
-        (session.user as any).level = token.level
-        (session.user as any).xp = token.xp
+        (session.user as any).id = token.id as string
+        (session.user as any).level = token.level as string
+        (session.user as any).xp = token.xp as number
       }
       return session
     }
