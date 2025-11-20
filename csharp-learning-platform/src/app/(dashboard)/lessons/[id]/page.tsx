@@ -4,7 +4,8 @@ import { authOptions } from "@/lib/auth"
 import { prisma } from "@/lib/prisma"
 import { LessonContent } from "@/components/lessons/LessonContent"
 
-export default async function LessonPage({ params }: { params: { id: string } }) {
+export default async function LessonPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
   const session = await getServerSession(authOptions)
 
   if (!session?.user) {
@@ -12,7 +13,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
   }
 
   const lesson = await prisma.lesson.findUnique({
-    where: { id: params.id },
+    where: { id },
     include: {
       module: true,
       exercises: {
