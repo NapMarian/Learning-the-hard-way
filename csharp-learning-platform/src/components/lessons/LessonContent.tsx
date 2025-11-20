@@ -6,6 +6,7 @@ import Link from "next/link"
 import { CodeEditor } from "@/components/editor/CodeEditor"
 import { Button } from "@/components/ui/Button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/Card"
+import { ThemeToggle } from "@/components/ThemeToggle"
 import ReactMarkdown from "react-markdown"
 
 type Exercise = {
@@ -112,14 +113,14 @@ export function LessonContent({ lesson, exercises, progress, userId }: LessonCon
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Header */}
-      <header className="bg-white shadow">
+      <header className="bg-white dark:bg-gray-800 shadow dark:shadow-gray-700">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-sm text-gray-600">{lesson.module.title}</div>
-              <h1 className="text-2xl font-bold text-gray-900">{lesson.title}</h1>
+              <div className="text-sm text-gray-600 dark:text-gray-400">{lesson.module.title}</div>
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{lesson.title}</h1>
             </div>
             <Link href="/dashboard">
               <Button variant="outline">← Volver al Dashboard</Button>
@@ -159,22 +160,22 @@ export function LessonContent({ lesson, exercises, progress, userId }: LessonCon
                         onClick={() => setCurrentExercise(index)}
                         className={`w-full text-left p-3 rounded-lg border transition-colors ${
                           currentExercise === index
-                            ? "border-blue-600 bg-blue-50"
-                            : "border-gray-200 hover:border-blue-300"
+                            ? "border-blue-600 dark:border-blue-400 bg-blue-50 dark:bg-blue-950"
+                            : "border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600"
                         }`}
                       >
                         <div className="flex items-center justify-between">
                           <div>
-                            <div className="font-semibold">
+                            <div className="font-semibold dark:text-gray-200">
                               {completedExercises.has(ex.id) && "✓ "}
                               {ex.title}
                             </div>
-                            <div className="text-xs text-gray-600">
+                            <div className="text-xs text-gray-600 dark:text-gray-400">
                               {ex.difficulty} • {ex.xpReward} XP
                             </div>
                           </div>
                           {completedExercises.has(ex.id) && (
-                            <span className="text-green-600 font-bold">✓</span>
+                            <span className="text-green-600 dark:text-green-400 font-bold">✓</span>
                           )}
                         </div>
                       </button>
@@ -198,7 +199,7 @@ export function LessonContent({ lesson, exercises, progress, userId }: LessonCon
                           {exercise.description}
                         </CardDescription>
                       </div>
-                      <span className="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">
+                      <span className="text-xs bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded">
                         {exercise.difficulty}
                       </span>
                     </div>
@@ -206,23 +207,23 @@ export function LessonContent({ lesson, exercises, progress, userId }: LessonCon
                   <CardContent>
                     <div className="space-y-4">
                       <div>
-                        <h4 className="font-semibold mb-2">📋 Instrucciones:</h4>
-                        <div className="text-sm text-gray-700 whitespace-pre-wrap">
+                        <h4 className="font-semibold mb-2 dark:text-gray-200">📋 Instrucciones:</h4>
+                        <div className="text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap">
                           {exercise.instructions}
                         </div>
                       </div>
 
                       {exercise.testCases.length > 0 && (
                         <div>
-                          <h4 className="font-semibold mb-2">✅ Casos de Prueba:</h4>
+                          <h4 className="font-semibold mb-2 dark:text-gray-200">✅ Casos de Prueba:</h4>
                           <div className="space-y-2">
                             {exercise.testCases.map((tc, idx) => (
-                              <div key={idx} className="text-sm bg-gray-50 p-2 rounded">
-                                <div className="font-mono">
-                                  <span className="text-gray-600">Input:</span> {tc.input}
+                              <div key={idx} className="text-sm bg-gray-50 dark:bg-gray-800 p-2 rounded">
+                                <div className="font-mono dark:text-gray-300">
+                                  <span className="text-gray-600 dark:text-gray-400">Input:</span> {tc.input}
                                 </div>
-                                <div className="font-mono">
-                                  <span className="text-gray-600">Output esperado:</span> {tc.expectedOutput}
+                                <div className="font-mono dark:text-gray-300">
+                                  <span className="text-gray-600 dark:text-gray-400">Output esperado:</span> {tc.expectedOutput}
                                 </div>
                               </div>
                             ))}
@@ -242,7 +243,7 @@ export function LessonContent({ lesson, exercises, progress, userId }: LessonCon
                           {showHints && (
                             <div className="mt-2 space-y-2">
                               {exercise.hints.map((hint, idx) => (
-                                <div key={idx} className="text-sm bg-yellow-50 border border-yellow-200 p-2 rounded">
+                                <div key={idx} className="text-sm bg-yellow-50 dark:bg-yellow-900/30 border border-yellow-200 dark:border-yellow-700 p-2 rounded dark:text-yellow-100">
                                   💡 {hint}
                                 </div>
                               ))}
@@ -276,7 +277,7 @@ export function LessonContent({ lesson, exercises, progress, userId }: LessonCon
 
             {exercises.length === 0 && (
               <Card>
-                <CardContent className="p-8 text-center text-gray-600">
+                <CardContent className="p-8 text-center text-gray-600 dark:text-gray-400">
                   Esta lección no tiene ejercicios prácticos. Revisa el contenido y continúa con la siguiente lección.
                 </CardContent>
               </Card>
@@ -284,6 +285,7 @@ export function LessonContent({ lesson, exercises, progress, userId }: LessonCon
           </div>
         </div>
       </div>
+      <ThemeToggle />
     </div>
   )
 }
